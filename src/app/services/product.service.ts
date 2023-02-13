@@ -34,4 +34,8 @@ export class ProductService {
   public getAllProducts(): Product[] {
     return this.products
   }
+
+  public addProduct(product: Product): void {
+    this.products.push(product)
+  }
 }
