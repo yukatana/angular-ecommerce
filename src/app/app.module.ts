@@ -10,6 +10,7 @@ import { ProductsComponent } from './components/products/products/products.compo
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductsModule } from './modules/products/products.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
