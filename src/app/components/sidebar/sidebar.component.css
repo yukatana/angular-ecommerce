@@ -1,0 +1,14 @@
+.list-group {
+  min-height: 800px;
+  background-color: rgba(206, 116, 197, 0.53);
+}
+
+.list-group-item {
+  border: none;
+}
+
+.list-group-item > a {
+  font-size: 1.5em;
+  color: rgba(193,63,178,0.94);
+  text-decoration: none;
+}
