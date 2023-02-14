@@ -1,0 +1,16 @@
+.form-box {
+  border-radius: 25px;
+  border: 1.5px solid #C13FB2;
+}
+
+mat-label {
+  color: #C13FB2;
+}
+
+.form-box {
+  width: 90%;
+}
+
+.form-box > p {
+  color: #C13FB2;
+}
