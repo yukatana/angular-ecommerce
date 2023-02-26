@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
-import { ProductsModule } from '../modules/products/products.module';
+import { Product } from '../../models/product';
+import { ProductsModule } from '../products.module';
 
 import axios from 'axios';
 
