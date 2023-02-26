@@ -5,15 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/modules/core.module';
 import { ProductsModule } from './products/products.module';
+import { CartsModule } from './carts/carts.module';
+import { PurchaseHistoryModule } from './purchase-history/purchase-history.module';
+import { AccountModule } from './account/account.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { CartsComponent } from './carts/components/carts/carts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +22,9 @@ import { CartsComponent } from './carts/components/carts/carts.component';
     BrowserAnimationsModule,
     CoreModule,
     ProductsModule,
+    CartsModule,
+    PurchaseHistoryModule,
+    AccountModule
   ],
   providers: [],
   exports: [],
