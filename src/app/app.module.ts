@@ -14,7 +14,7 @@ import { SidebarComponent } from './core/components/sidebar/sidebar.component';
 import { ProductsComponent } from './products/components/products/products.component';
 import { ProductFormComponent } from './products/components/product-form/product-form.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-import { HeaderDirective } from './directives/header.directive';
+import { CartsComponent } from './carts/components/carts/carts.component';
 
 // Directives
 
@@ -26,7 +26,7 @@ import { HeaderDirective } from './directives/header.directive';
     ProductsComponent,
     ProductFormComponent,
     FooterComponent,
-    HeaderDirective,
+    CartsComponent,
   ],
   imports: [
     BrowserModule,

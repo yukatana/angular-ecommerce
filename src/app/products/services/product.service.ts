@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductsModule } from '../products.module';
 
-import axios from 'axios';
-
 @Injectable({
   providedIn: ProductsModule
 })
