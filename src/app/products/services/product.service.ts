@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../models/product';
-import { ProductsModule } from '../products.module';
 
-@Injectable({
-  providedIn: ProductsModule
-})
+@Injectable()
 export class ProductService {
   private products: Product[] = [
     {_id: '1',
