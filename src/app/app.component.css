@@ -1,3 +1,7 @@
 #footer-box {
   background-color: #C2185B;
 }
+
+#sidebar-box {
+  min-height: 500px;
+}
