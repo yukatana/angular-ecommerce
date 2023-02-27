@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { FooterComponent } from '../components/footer/footer.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     MaterialModule,
@@ -19,6 +21,7 @@ import { FooterComponent } from '../components/footer/footer.component';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
+    NotFoundComponent,
   ]
 })
 export class CoreModule { }

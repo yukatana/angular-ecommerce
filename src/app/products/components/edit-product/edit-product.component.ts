@@ -39,6 +39,7 @@ export class EditProductComponent implements OnInit {
       ...this.editProductForm.value
     }
     this.productService.editProduct(product)
+    this.dialogRef.close()
   }
 
 }
