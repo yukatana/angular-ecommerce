@@ -1,10 +1,10 @@
 .form-box {
   border-radius: 25px;
-  border: 1.5px solid #C13FB2;
+  border: 2px solid #C2185BFF;
 }
 
 mat-label {
-  color: #C13FB2;
+  color: #FFFFFF;
 }
 
 .form-box {

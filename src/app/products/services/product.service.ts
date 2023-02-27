@@ -1,36 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../models/product';
+import { generateProducts } from '../../utils/data-generator';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class ProductService {
-  private products: Product[] = [
-    {_id: '1',
-      name: 'Car',
-      category: 'vehicle',
-      description: 'A very fast car.',
-      thumbnail: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/17-2023-honda-civic-type-r-1668492493.jpg?crop=0.550xw:0.823xh;0.149xw,0.177xh&resize=1200:*',
-      price: 10000,
-      stock: 1,
-      dateString: 'Jan 3rd, 2023'
-    },
-    {_id: '2',
-      name: 'Apache helicopter',
-      category: 'vehicle',
-      description: 'It can fly!.',
-      thumbnail: 'https://www.airforce-technology.com/wp-content/uploads/sites/6/2017/09/apache111.jpg',
-      price: 50000,
-      stock: 5,
-      dateString: 'Feb 5th, 2023'
-    }
-  ]
+  private products: Product[] = generateProducts(3)
+  private products$: BehaviorSubject<Product[]>
 
-  constructor() { }
+  constructor() {
+    this.products$ = new BehaviorSubject<Product[]>(this.products)
+  }
 
-  public getAllProducts(): Product[] {
-    return this.products
+  public getAllProducts(): Observable<Product[]> {
+    return this.products$.asObservable()
   }
 
   public addProduct(product: Product): void {
     this.products.push(product)
+    this.products$.next(this.products)
+  }
+
+  public editProduct(product: Product): void {
+    this.products[this.products.findIndex(_product => _product.id === product.id)] = product
+    this.products$.next(this.products)
+  }
+
+  public deleteProduct(id: string): void {
+    this.products.splice(this.products.findIndex(_product => _product.id === id), 1)
+    this.products$.next(this.products)
   }
 }

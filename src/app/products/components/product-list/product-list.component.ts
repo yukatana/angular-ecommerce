@@ -8,14 +8,20 @@ import { Product } from '../../../models/product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products!: Product[]
+  products$!: Product[]
 
   constructor(
     private productService: ProductService
   ) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts()
+    this.productService.getAllProducts().subscribe(state => {
+      this.products$ = state
+    })
+  }
+
+  deleteProduct(id: string): void {
+    this.productService.deleteProduct(id)
   }
 
 }

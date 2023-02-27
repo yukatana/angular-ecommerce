@@ -16,12 +16,12 @@ export class ProductFormComponent implements OnInit {
   ) {
     const URLRegex: string = '(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})'
     const controls: any = {
-      name: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required]),
-      description: new FormControl(''),
-      thumbnail: new FormControl('', [Validators.required, Validators.pattern(URLRegex)]),
-      price: new FormControl(0, [Validators.required, Validators.min(1)]),
-      stock: new FormControl(0, [Validators.required, Validators.min(1)])
+      name: new FormControl(null, [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
+      description: new FormControl(),
+      thumbnail: new FormControl(null, [Validators.required, Validators.pattern(URLRegex)]),
+      price: new FormControl(null, [Validators.required, Validators.min(1)]),
+      stock: new FormControl(null, [Validators.required, Validators.min(1)])
     }
     this.productForm = new FormGroup(controls)
   }

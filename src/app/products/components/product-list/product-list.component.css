@@ -1,7 +1,5 @@
 mat-card {
   background-color: rgba(193, 111, 185, 0.27);
-  border-width: thick;
-  border-color: rgba(61, 217, 61, 0.84);
 }
 
 mat-card-header {
