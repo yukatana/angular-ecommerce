@@ -10,6 +10,7 @@
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Category</mat-label>
         <input matInput formControlName="category" class="text-white">
+        <mat-error *ngIf="productForm.controls['category'].dirty && productForm.controls['category'].errors?.['required']">This field cannot be empty</mat-error>
       </mat-form-field>
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Description</mat-label>
@@ -18,14 +19,20 @@
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Thumbnail URL</mat-label>
         <input matInput formControlName="thumbnail" class="text-white">
+        <mat-error *ngIf="productForm.controls['thumbnail'].dirty && productForm.controls['thumbnail'].errors?.['required']">This field cannot be empty</mat-error>
+        <mat-error *ngIf="productForm.controls['thumbnail'].dirty && productForm.controls['thumbnail'].errors?.['pattern']">Thumbnail must be a valid URL</mat-error>
       </mat-form-field>
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Price</mat-label>
         <input matInput type="number" formControlName="price" class="text-white">
+        <mat-error *ngIf="productForm.controls['price'].dirty && productForm.controls['price'].errors?.['required']">This field cannot be empty</mat-error>
+        <mat-error *ngIf="productForm.controls['price'].dirty && productForm.controls['price'].errors?.['min']">Price must be at least 1</mat-error>
       </mat-form-field>
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Stock</mat-label>
         <input matInput type="number" formControlName="stock" class="text-white">
+        <mat-error *ngIf="productForm.controls['stock'].dirty && productForm.controls['stock'].errors?.['required']">This field cannot be empty</mat-error>
+        <mat-error *ngIf="productForm.controls['stock'].dirty && productForm.controls['stock'].errors?.['min']">Stock must be at least 1</mat-error>
       </mat-form-field>
       <div class="text-center">
         <button type="submit" [disabled]="!productForm.valid" mat-raised-button color="primary" class="mx-3 my-1 w-25">Create product</button>

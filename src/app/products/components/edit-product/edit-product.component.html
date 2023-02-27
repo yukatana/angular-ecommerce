@@ -1,0 +1,38 @@
+<form [formGroup]="editProductForm" (ngSubmit)="editProduct()">
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Product name</mat-label>
+    <input matInput formControlName="name" class="text-white">
+    <mat-error *ngIf="editProductForm.controls['name'].dirty && editProductForm.controls['name'].errors?.['required']">This field cannot be empty</mat-error>
+  </mat-form-field>
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Category</mat-label>
+    <input matInput formControlName="category" class="text-white">
+    <mat-error *ngIf="editProductForm.controls['category'].dirty && editProductForm.controls['category'].errors?.['required']">This field cannot be empty</mat-error>
+  </mat-form-field>
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" class="text-white">
+  </mat-form-field>
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Thumbnail URL</mat-label>
+    <input matInput formControlName="thumbnail" class="text-white">
+    <mat-error *ngIf="editProductForm.controls['thumbnail'].dirty && editProductForm.controls['thumbnail'].errors?.['required']">This field cannot be empty</mat-error>
+    <mat-error *ngIf="editProductForm.controls['thumbnail'].dirty && editProductForm.controls['thumbnail'].errors?.['pattern']">Thumbnail must be a valid URL</mat-error>
+  </mat-form-field>
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" class="text-white">
+    <mat-error *ngIf="editProductForm.controls['price'].dirty && editProductForm.controls['price'].errors?.['required']">This field cannot be empty</mat-error>
+    <mat-error *ngIf="editProductForm.controls['price'].dirty && editProductForm.controls['price'].errors?.['min']">Price must be at least 1</mat-error>
+  </mat-form-field>
+  <mat-form-field class="col-12 px-2" appearance="fill" >
+    <mat-label>Stock</mat-label>
+    <input matInput type="number" formControlName="stock" class="text-white">
+    <mat-error *ngIf="editProductForm.controls['stock'].dirty && editProductForm.controls['stock'].errors?.['required']">This field cannot be empty</mat-error>
+    <mat-error *ngIf="editProductForm.controls['stock'].dirty && editProductForm.controls['stock'].errors?.['min']">Stock must be at least 1</mat-error>
+  </mat-form-field>
+  <div class="text-center">
+    <button type="submit" [disabled]="!editProductForm.valid" mat-raised-button color="primary" class="mx-3 my-1 w-25">Edit product</button>
+    <button type="reset" mat-raised-button color="warn" class="mx-3 my-1 w-25 text-white">Reset</button>
+  </div>
+</form>

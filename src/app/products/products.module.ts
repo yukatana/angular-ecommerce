@@ -8,12 +8,14 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductFormComponent } from './components/product-form/product-form.component';
 
 import { ProductService } from './services/product.service';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
     ProductsParentComponent,
     ProductListComponent,
     ProductFormComponent,
+    EditProductComponent,
   ],
   providers: [
     ProductService
