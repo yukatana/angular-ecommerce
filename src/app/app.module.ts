@@ -11,6 +11,8 @@ import { AccountModule } from './account/account.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AppComponent } from './app.component';
     ProductsModule,
     CartsModule,
     PurchaseHistoryModule,
-    AccountModule
+    AccountModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   exports: [],
