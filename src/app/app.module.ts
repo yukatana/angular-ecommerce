@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/modules/core.module';
 import { ProductsModule } from './products/products.module';
@@ -14,11 +15,15 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+// NgRx reducers
+import { ROOT_REDUCERS } from './core/state/app.state';
+
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -27,8 +32,7 @@ import { EffectsModule } from '@ngrx/effects';
     CartsModule,
     PurchaseHistoryModule,
     AccountModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    StoreModule.forRoot(ROOT_REDUCERS),
   ],
   providers: [],
   exports: [],
