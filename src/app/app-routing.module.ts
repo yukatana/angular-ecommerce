@@ -6,13 +6,15 @@ import { PurchaseHistoryComponent } from './purchase-history/components/purchase
 import { AccountComponent } from './account/components/account/account.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
+import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsParentComponent },
-  { path: 'carts', component: CartsComponent, canLoad: [AuthenticationGuard] },
-  { path: 'purchase-history', component: PurchaseHistoryComponent, canLoad: [AuthenticationGuard] },
-  { path: 'account', component: AccountComponent, canLoad: [AuthenticationGuard] },
-  { path: '**', component: NotFoundComponent}
+  { path: 'carts', component: CartsComponent, canActivate: [AuthenticationGuard] },
+  { path: 'purchase-history', component: PurchaseHistoryComponent, canActivate: [AuthenticationGuard] },
+  { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({

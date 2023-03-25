@@ -13,7 +13,6 @@ import { AccountModule } from './account/account.module';
 // Components
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 
 // NgRx reducers
 import { ROOT_REDUCERS } from './core/state/app.state';
