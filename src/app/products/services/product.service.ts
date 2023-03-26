@@ -11,14 +11,14 @@ export class ProductService {
   constructor(
     private httpService: HttpService
   ) {
-    this.products$ = new BehaviorSubject<Product[]>(this.getAllProducts())
-  }
-
-  getAllProducts(): Product[] {
+    // assigning first value as an empty array to wait to HTTP response
+    this.products$ = new BehaviorSubject<Product[]>([])
+    // calling HTTP service in order to pass server response to products$ BehaviorSubject
     this.httpService.getProductsFromAPI().subscribe(
-      products => this.products = products
+      products => {
+        this.products$.next(products)
+      }
     )
-    return this.products
   }
 
   getProductsAsObservable(): Observable<Product[]> {
