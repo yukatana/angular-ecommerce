@@ -10,7 +10,7 @@ import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsParentComponent },
-  { path: 'carts', component: CartsComponent, canActivate: [AuthenticationGuard] },
+  { path: 'carts', component: CartsComponent },
   { path: 'purchase-history', component: PurchaseHistoryComponent, canActivate: [AuthenticationGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
   { path: 'login', component: LoginComponent },
