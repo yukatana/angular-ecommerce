@@ -5,20 +5,21 @@ import { HttpService } from '../../core/services/http.service';
 
 @Injectable()
 export class ProductService {
-  private products!: Product[]
+  private products: Product[] = []
   private products$: BehaviorSubject<Product[]>
 
   constructor(
     private httpService: HttpService
   ) {
-    this.products$ = new BehaviorSubject<Product[]>(this.getAllProducts())
-  }
-
-  getAllProducts(): Product[] {
+    // assigning first value as an empty array to wait to HTTP response
+    this.products$ = new BehaviorSubject<Product[]>(this.products)
+    // calling HTTP service in order to pass server response to products$ BehaviorSubject
     this.httpService.getProductsFromAPI().subscribe(
-      products => this.products = products
+      products => {
+        this.products = products
+        this.products$.next(this.products)
+      }
     )
-    return this.products
   }
 
   getProductsAsObservable(): Observable<Product[]> {
