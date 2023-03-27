@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/modules/core.module';
 import { ProductsModule } from './products/products.module';
-import { CartsModule } from './carts/carts.module';
+import { CartModule } from './cart/cart.module';
 import { PurchaseHistoryModule } from './purchase-history/purchase-history.module';
 import { AccountModule } from './account/account.module';
 
@@ -28,7 +28,7 @@ import { ROOT_REDUCERS } from './core/state/app.state';
     BrowserAnimationsModule,
     CoreModule,
     ProductsModule,
-    CartsModule,
+    CartModule,
     PurchaseHistoryModule,
     AccountModule,
     StoreModule.forRoot(ROOT_REDUCERS),

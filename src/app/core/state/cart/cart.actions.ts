@@ -12,7 +12,7 @@ export const deleteItemFromCart = createAction(
   props<{ product: Product }>()
 )
 
-export const editProductQuantity = createAction(
+export const editItemQuantity = createAction(
   '[Cart Component] Edit product quantity in cart',
   props<{ product: Product, quantity: number }>()
 )

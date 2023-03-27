@@ -1,28 +1,25 @@
-import { CartState } from '../../../models/cart.state';
+import { CartItem } from '../../../models/cart.state';
 import { createReducer, on } from '@ngrx/store';
-import { addItemToCart, deleteItemFromCart, editProductQuantity, emptyCart } from './cart.actions';
+import { addItemToCart, deleteItemFromCart, editItemQuantity, emptyCart } from './cart.actions';
 
-const initialState: CartState = {
-  items: []
-}
+const initialState: CartItem[] = []
 
 export const cartReducer = createReducer(
   initialState,
   on(addItemToCart, (state, { item }) => {
-    return {
-      items: [...state.items, item]
-    }
+    return [...state, item]
   }),
   on(deleteItemFromCart, (state, { product }) => {
-    const updatedCart = state.items.filter(e => e.product !== product)
-    return { items: updatedCart }
+    return state.filter(e => e.product.id !== product.id)
   }),
-  on(editProductQuantity, (state, { product, quantity }) => {
+  on(editItemQuantity, (state, { product, quantity }) => {
+    // deep-copying previous state in order to maintain immutability
+    const copy = structuredClone(state)
     // Replacing the quantity property of the item in the array by its index
-    state.items[state.items.findIndex(e => e.product === product)].quantity = quantity
-    return state
+    copy[copy.findIndex(e => e.product.id === product.id)].quantity = quantity
+    return copy
   }),
   on(emptyCart, () => {
-    return { items: [] }
+    return []
   })
 )

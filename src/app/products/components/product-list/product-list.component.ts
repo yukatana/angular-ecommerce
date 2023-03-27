@@ -3,7 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../../models/product';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProductComponent } from '../edit-product/edit-product.component';
-import { Observable } from 'rxjs';
+import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
     public dialog: MatDialog
   ) { }
 
@@ -32,4 +33,7 @@ export class ProductListComponent implements OnInit {
     this.productService.deleteProduct(id)
   }
 
+  addItemToCart(product: Product, quantity: number) {
+    this.cartService.addItemToCart(product, quantity)
+  }
 }

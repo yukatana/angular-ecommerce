@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsParentComponent } from './products/components/products-parent/products-parent.component';
-import { CartsComponent } from './carts/components/carts/carts.component';
+import { CartComponent } from './cart/components/cart/cart.component';
 import { PurchaseHistoryComponent } from './purchase-history/components/purchase-history/purchase-history.component';
 import { AccountComponent } from './account/components/account/account.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
@@ -10,7 +10,7 @@ import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsParentComponent },
-  { path: 'carts', component: CartsComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'purchase-history', component: PurchaseHistoryComponent, canActivate: [AuthenticationGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
   { path: 'login', component: LoginComponent },

@@ -9,6 +9,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 
 import { ProductService } from './services/product.service';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CartService } from '../cart/services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     EditProductComponent,
   ],
   providers: [
-    ProductService
+    ProductService,
+    CartService,
   ],
   imports: [
     CommonModule,
     SharedFormsModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [
     ProductsParentComponent,

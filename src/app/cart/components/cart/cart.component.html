@@ -1,0 +1,25 @@
+<div *ngIf="cart.length === 0" class="container my-3">
+  <div class="row">
+    <h1 class="text-white col-12">Your cart is empty. Why don't you add some items from the products tab?</h1>
+  </div>
+</div>
+
+<div class="container my-3">
+  <div class="row">
+    <div *ngFor="let item of cart" class="col-md-4">
+      <mat-card class="m-1">
+        <mat-card-header>
+          <mat-card-title>{{ item.product.name }}</mat-card-title>
+          <mat-card-subtitle>Price: ${{ item.product.price }}</mat-card-subtitle>
+          <mat-card-subtitle>Quantity: {{ item.quantity }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image width="500" height="500" src="{{item.product.thumbnail}}">
+        <mat-card-actions>
+          <button mat-flat-button color="accent" (click)="editProductQuantity(item, +1)">+1</button>
+          <button mat-stroked-button color="accent" (click)="editProductQuantity(item, -1)">-1</button>
+          <button mat-flat-button color="warn" (click)="deleteItemFromCart(item.product)">Delete from cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
