@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
   attemptSignup(user: User) {
     this.authService.attemptSignup(user).subscribe(
       res => {
-
+        this.authService.createSession(res)
       }
     )
   }
