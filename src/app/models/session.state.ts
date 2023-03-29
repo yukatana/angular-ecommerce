@@ -1,5 +1,6 @@
+import { User } from './user';
+
 export interface SessionState {
-  username: string | null;
+  user: User | null
   isAuthenticated: boolean;
-  token: string | null;
 }

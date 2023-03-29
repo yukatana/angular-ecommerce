@@ -28,7 +28,7 @@ export class CartService {
     // structuring item as CartItem interface to dispatch action
     const item = { product, quantity }
     // checking if an item is already in the cart
-    const isItemInCart = this.cart.findIndex(e => e.product.id === product.id)
+    const isItemInCart = this.cart.findIndex(e => e.product._id === product._id)
     if (isItemInCart !== -1) {
       this.store.dispatch(editItemQuantity({ product, quantity: this.cart[isItemInCart].quantity+1 }))
     } else {

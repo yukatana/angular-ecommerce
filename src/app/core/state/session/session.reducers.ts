@@ -3,25 +3,22 @@ import { SessionState } from '../../../models/session.state';
 import { exitSession, saveSession } from './session.actions';
 
 const initialState: SessionState = {
-  username: null,
+  user: null,
   isAuthenticated: false,
-  token: null,
 }
 
 export const sessionReducer = createReducer(
   initialState,
-  on(saveSession, (state, { credentials }) => {
+  on(saveSession, (state, { user }) => {
     return {
+      user,
       isAuthenticated: true,
-      username: credentials.username,
-      token: credentials.token,
     }
   }),
   on(exitSession, () => {
     return {
+      user: null,
       isAuthenticated: false,
-      username: null,
-      token: null,
     }
   })
 )

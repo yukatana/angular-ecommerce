@@ -16,13 +16,6 @@ export const isAuthenticatedSelector = createSelector(
 export const usernameSelector = createSelector(
   sessionSelector,
   (state: SessionState) => {
-    return state.username
-  }
-)
-
-export const tokenSelector = createSelector(
-  sessionSelector,
-  (state: SessionState) => {
-    return state.token
+    return state?.user?.username
   }
 )

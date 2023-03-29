@@ -12,7 +12,7 @@
         <mat-card-actions>
           <button mat-flat-button color="accent" (click)="addItemToCart(product, 1)">Add to cart</button>
           <button mat-stroked-button color="accent" (click)="openEditProductDialog(product)">Edit</button>
-          <button mat-flat-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+          <button mat-flat-button color="warn" (click)="deleteProduct(product._id)">Delete</button>
         </mat-card-actions>
       </mat-card>
     </div>

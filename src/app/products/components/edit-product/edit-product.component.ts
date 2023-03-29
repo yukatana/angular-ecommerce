@@ -35,7 +35,7 @@ export class EditProductComponent implements OnInit {
 
   editProduct(): void {
     const product = {
-      id: this.product.id,
+      _id: this.product._id,
       ...this.editProductForm.value
     }
     this.productService.editProduct(product)

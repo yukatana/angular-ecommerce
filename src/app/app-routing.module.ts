@@ -6,7 +6,7 @@ import { PurchaseHistoryComponent } from './purchase-history/components/purchase
 import { AccountComponent } from './account/components/account/account.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { AuthenticationGuard } from './core/guards/authentication.guard';
-import { LoginComponent } from './login/components/login/login.component';
+import { LoginComponent } from './auth/login/components/login/login.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsParentComponent },

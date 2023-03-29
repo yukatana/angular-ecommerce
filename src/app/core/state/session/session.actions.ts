@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { SessionCredentials } from '../../../models/session-credentials';
+import { User } from '../../../models/user';
 
 export const saveSession = createAction(
   '[Authentication] Save session',
-  props<{ credentials: SessionCredentials }>()
+  props<{ user: User }>()
 )
 
 export const exitSession = createAction(

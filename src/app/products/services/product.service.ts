@@ -32,12 +32,12 @@ export class ProductService {
   }
 
   editProduct(product: Product): void {
-    this.products[this.products.findIndex(_product => _product.id === product.id)] = product
+    this.products[this.products.findIndex(_product => _product._id === product._id)] = product
     this.products$.next(this.products)
   }
 
   deleteProduct(id: string): void {
-    this.products.splice(this.products.findIndex(_product => _product.id === id), 1)
+    this.products.splice(this.products.findIndex(_product => _product._id === id), 1)
     this.products$.next(this.products)
   }
 }
