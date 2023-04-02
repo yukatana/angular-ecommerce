@@ -31,6 +31,7 @@ import { CartService } from '../cart/services/cart.service';
     ProductsParentComponent,
     ProductListComponent,
     ProductFormComponent,
+    EditProductComponent,
   ]
 })
 export class ProductsModule { }

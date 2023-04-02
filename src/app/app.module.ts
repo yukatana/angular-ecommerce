@@ -9,6 +9,8 @@ import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
 import { PurchaseHistoryModule } from './purchase-history/purchase-history.module';
 import { AccountModule } from './account/account.module';
+import { SignupModule } from './auth/signup/signup.module';
+import { LoginModule } from './auth/login/login.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -31,6 +33,8 @@ import { ROOT_REDUCERS } from './core/state/app.state';
     CartModule,
     PurchaseHistoryModule,
     AccountModule,
+    LoginModule,
+    SignupModule,
     StoreModule.forRoot(ROOT_REDUCERS),
   ],
   providers: [],
