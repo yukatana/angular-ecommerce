@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../state/app.state';
-import { exitSession } from '../../../state/session/session.actions';
 import { Router } from '@angular/router';
 import { isAuthenticatedSelector } from '../../../state/session/session.selectors';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from '../../../auth/services/authentication.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store<AppState>,
+    private authService: AuthenticationService,
   ) {
     this.isAuthenticated$ = this.store.select(isAuthenticatedSelector)
   }
@@ -25,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logOut = () => {
+    this.authService.deleteSessionFromStore()
     this.router.navigate(['products'])
-    this.store.dispatch(exitSession())
   }
 }

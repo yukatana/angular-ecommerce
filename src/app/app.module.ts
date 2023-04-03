@@ -12,6 +12,7 @@ import { AccountModule } from './account/account.module';
 import { SignupModule } from './auth/signup/signup.module';
 import { LoginModule } from './auth/login/login.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 // Components
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { ROOT_REDUCERS } from './state/app.state';
     LoginModule,
     SignupModule,
     StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   exports: [],

@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../state/app.state';
 import { SessionState } from '../../models/session.state';
 import { sessionSelector } from '../../state/session/session.selectors';
-import { saveSession } from '../../state/session/session.actions';
+import { exitSession, storeSession } from '../../state/session/session.actions';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 
@@ -14,15 +14,13 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class AuthenticationService {
   response!: User;
-  session!: SessionState;
+  session$: Observable<SessionState>;
 
   constructor(
     private httpService: HttpService,
     private store: Store<AppState>,
   ) {
-    this.store.select(sessionSelector).subscribe(
-      state => this.session = state
-    )
+    this.session$ = this.store.select(sessionSelector)
   }
 
   attemptSignup(user: User): Observable<HttpResponse<User>> {
@@ -34,6 +32,20 @@ export class AuthenticationService {
   }
 
   createSession(user: User) {
-    this.store.dispatch(saveSession({ user }))
+    this.store.dispatch(storeSession({ user }))
+  }
+
+  // called from SessionEffects in order to persist session data
+  saveSessionToStorage(user: User) {
+    localStorage.setItem('session', JSON.stringify(user))
+  }
+
+  exitSession() {
+    this.store.dispatch(exitSession())
+  }
+
+  // called from SessionEffects in order to delete session data
+  deleteSessionFromStorage() {
+    localStorage.removeItem('session')
   }
 }
