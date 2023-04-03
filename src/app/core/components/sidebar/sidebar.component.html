@@ -22,7 +22,7 @@
         </a>
       </li>
       <li>
-        <a class="list-group-item py-3 bg-transparent" (click)="logOut()">
+        <a *ngIf="(isAuthenticated$ | async)" class="list-group-item py-3 bg-transparent" (click)="logOut()">
           <span>Log out</span>
         </a>
       </li>

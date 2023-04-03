@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../../models/cart.state';
-import { AppState } from '../../core/state/app.state';
+import { AppState } from '../../state/app.state';
 import { Store } from '@ngrx/store';
-import { cartSelector } from '../../core/state/cart/cart.selectors';
+import { cartSelector } from '../../state/cart/cart.selectors';
 import { Product } from '../../models/product';
-import { addItemToCart, deleteItemFromCart, editItemQuantity, emptyCart } from '../../core/state/cart/cart.actions';
+import { addItemToCart, deleteItemFromCart, editItemQuantity, emptyCart } from '../../state/cart/cart.actions';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { SessionState } from '../../../models/session.state';
+import { SessionState } from '../../models/session.state';
 import { exitSession, saveSession } from './session.actions';
 
 const initialState: SessionState = {

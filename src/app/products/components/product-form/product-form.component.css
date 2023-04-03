@@ -1,14 +1,11 @@
 .form-box {
   border-radius: 25px;
   border: 2px solid #C2185BFF;
+  width: 90%;
 }
 
 mat-label {
   color: #FFFFFF;
-}
-
-.form-box {
-  width: 90%;
 }
 
 .form-box > p {

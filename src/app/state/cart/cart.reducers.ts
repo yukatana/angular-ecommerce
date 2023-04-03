@@ -1,4 +1,4 @@
-import { CartItem } from '../../../models/cart.state';
+import { CartItem } from '../../models/cart.state';
 import { createReducer, on } from '@ngrx/store';
 import { addItemToCart, deleteItemFromCart, editItemQuantity, emptyCart } from './cart.actions';
 

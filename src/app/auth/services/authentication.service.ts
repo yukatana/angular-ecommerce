@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../../core/services/http.service';
 import { User, UserCredentials } from '../../models/user';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../core/state/app.state';
+import { AppState } from '../../state/app.state';
 import { SessionState } from '../../models/session.state';
-import { sessionSelector } from '../../core/state/session/session.selectors';
-import { saveSession } from '../../core/state/session/session.actions';
+import { sessionSelector } from '../../state/session/session.selectors';
+import { saveSession } from '../../state/session/session.actions';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 

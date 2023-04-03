@@ -1,6 +1,6 @@
 import { User } from './user';
 
 export interface SessionState {
-  user: User | null
+  user: User | null;
   isAuthenticated: boolean;
 }

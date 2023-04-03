@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 
 // NgRx reducers
-import { ROOT_REDUCERS } from './core/state/app.state';
+import { ROOT_REDUCERS } from './state/app.state';
 
 @NgModule({
   declarations: [

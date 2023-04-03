@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
   <h1 routerLink="/products" class="ms-2 toolbar-clickable-element">eCommerce</h1>
   <span class="spacer"></span>
-  <span *ngIf="" routerLink="/auth/signup" class="mx-3 toolbar-clickable-element">Sign up</span>
-  <span routerLink="/auth/login" class="mx-3 toolbar-clickable-element">Log in</span>
+  <span *ngIf="!(isAuthenticated$ | async)" routerLink="/auth/signup" class="mx-3 toolbar-clickable-element">Sign up</span>
+  <span *ngIf="!(isAuthenticated$ | async)" routerLink="/auth/login" class="mx-3 toolbar-clickable-element">Log in</span>
+  <span *ngIf="(isAuthenticated$ | async)" class="mx-3 toolbar-clickable-element">Welcome, {{ username$ | async }}</span>
 </mat-toolbar>

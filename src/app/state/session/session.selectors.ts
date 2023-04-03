@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { SessionState } from '../../../models/session.state';
+import { SessionState } from '../../models/session.state';
 import { AppState } from '../app.state';
 
 export const sessionSelector = (state: AppState): SessionState => {
@@ -10,6 +10,13 @@ export const isAuthenticatedSelector = createSelector(
   sessionSelector,
   (state: SessionState) => {
     return state.isAuthenticated
+  }
+)
+
+export const userSelector = createSelector(
+  sessionSelector,
+  (state: SessionState) => {
+    return state?.user
   }
 )
 

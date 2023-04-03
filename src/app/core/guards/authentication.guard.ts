@@ -8,9 +8,9 @@ import {
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AppState } from '../state/app.state';
+import { AppState } from '../../state/app.state';
 import { Store } from '@ngrx/store';
-import { isAuthenticatedSelector } from '../state/session/session.selectors';
+import { isAuthenticatedSelector } from '../../state/session/session.selectors';
 
 @Injectable({
   providedIn: 'root'
