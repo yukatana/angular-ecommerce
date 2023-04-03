@@ -15,6 +15,6 @@ export const exitSession = createAction(
   '[Authentication] Exit session'
 )
 
-export const deleteSessionFromStore = createAction(
+export const deleteSessionFromStorage = createAction(
   '[Session effect] Delete session data from localStorage'
 )

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthenticationService } from '../../auth/services/authentication.service';
-import { deleteSessionFromStore, exitSession, saveSession, storeSession } from './session.actions';
+import { deleteSessionFromStorage, exitSession, saveSession, storeSession } from './session.actions';
 import { map, tap } from 'rxjs';
 
 
@@ -29,7 +29,7 @@ export class SessionEffects {
 
   exitSession$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(deleteSessionFromStore),
+      ofType(deleteSessionFromStorage),
       tap(action => {
         this.authService.deleteSessionFromStorage()
       }),

@@ -17,8 +17,9 @@ import { EffectsModule } from '@ngrx/effects';
 // Components
 import { AppComponent } from './app.component';
 
-// NgRx reducers
+// NgRx
 import { ROOT_REDUCERS } from './state/app.state';
+import { SessionEffects } from './state/session/session.effects';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { ROOT_REDUCERS } from './state/app.state';
     LoginModule,
     SignupModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([SessionEffects]),
   ],
   providers: [],
   exports: [],

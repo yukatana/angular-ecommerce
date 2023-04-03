@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../state/app.state';
 import { SessionState } from '../../models/session.state';
 import { sessionSelector } from '../../state/session/session.selectors';
-import { exitSession, storeSession } from '../../state/session/session.actions';
+import { deleteSessionFromStorage, exitSession, saveSession, storeSession } from '../../state/session/session.actions';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 
@@ -31,8 +31,12 @@ export class AuthenticationService {
     return this.httpService.postLogin(credentials)
   }
 
-  createSession(user: User) {
+  saveSessionAndStore(user: User) {
     this.store.dispatch(storeSession({ user }))
+  }
+
+  saveSessionWithoutStoring(user: User) {
+    this.store.dispatch(saveSession({ user }))
   }
 
   // called from SessionEffects in order to persist session data
@@ -41,7 +45,7 @@ export class AuthenticationService {
   }
 
   exitSession() {
-    this.store.dispatch(exitSession())
+    this.store.dispatch(deleteSessionFromStorage())
   }
 
   // called from SessionEffects in order to delete session data

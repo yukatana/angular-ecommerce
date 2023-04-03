@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     const controls: any = {
       username: new FormControl(null, [Validators.required, Validators.pattern(emailRegex)]),
       password: new FormControl(null, [Validators.required]),
+      saveSession: new FormControl(false),
     }
     this.loginForm = new FormGroup(controls)
   }
@@ -30,17 +31,24 @@ export class LoginComponent implements OnInit {
   }
 
   attemptLogin() {
-    this.authService.attemptLogin(this.loginForm.value).subscribe(
+    const credentials = { username: this.loginForm.value.username, password: this.loginForm.value.password}
+    this.authService.attemptLogin(credentials).subscribe(
       res => {
         if (res.status === 200
             && res.body?.username) {
           const user = { ...res.body }
-          this.authService.createSession(user)
+          // If logging in and persisting session credentials
+          if (this.loginForm.value.saveSession) {
+            this.authService.saveSessionAndStore(user)
+          } else {
+            // If logging in but not persisting session credentials
+            this.authService.saveSessionWithoutStoring(user)
+          }
           this.router.navigateByUrl(this.returnUrl)
-        } else {
-          this.loginForm.reset()
-          alert('Invalid credentials. Try again with a different combination.')
         }
+      }, error => {
+        this.loginForm.reset()
+        alert('Invalid credentials. Try again with a different combination.')
       }
     )
   }

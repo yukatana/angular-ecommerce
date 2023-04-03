@@ -38,12 +38,13 @@ export class SignupComponent implements OnInit {
         if (res.status === 200
           && res.body?.username) {
           const user = { ...res.body }
-          this.authService.createSession(user)
+          // using saveSessionWithoutStoring since there is no remember me checkbox on SignupComponent
+          this.authService.saveSessionWithoutStoring(user)
           this.router.navigate(['/products'])
-        } else {
-          this.signupForm.reset()
-          alert('An account already exists for this email address. Please, try registering with a different address.')
         }
+      }, error => {
+        this.signupForm.reset()
+        alert('An account already exists for this email address. Please, try registering with a different address.')
       }
     )
   }

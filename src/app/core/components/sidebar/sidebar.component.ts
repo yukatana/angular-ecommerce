@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logOut = () => {
-    this.authService.deleteSessionFromStore()
+    this.authService.deleteSessionFromStorage()
     this.router.navigate(['products'])
   }
 }
