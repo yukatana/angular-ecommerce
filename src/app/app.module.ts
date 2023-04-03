@@ -11,10 +11,10 @@ import { PurchaseHistoryModule } from './purchase-history/purchase-history.modul
 import { AccountModule } from './account/account.module';
 import { SignupModule } from './auth/signup/signup.module';
 import { LoginModule } from './auth/login/login.module';
+import { StoreModule } from '@ngrx/store';
 
 // Components
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
 
 // NgRx reducers
 import { ROOT_REDUCERS } from './core/state/app.state';

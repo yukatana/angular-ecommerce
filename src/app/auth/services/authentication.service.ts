@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../core/services/http.service';
-import { User } from '../../models/user';
+import { User, UserCredentials } from '../../models/user';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../core/state/app.state';
 import { SessionState } from '../../models/session.state';
 import { sessionSelector } from '../../core/state/session/session.selectors';
 import { saveSession } from '../../core/state/session/session.actions';
+import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +25,12 @@ export class AuthenticationService {
     )
   }
 
-  attemptSignup(user: User) {
+  attemptSignup(user: User): Observable<HttpResponse<User>> {
     return this.httpService.postSignup(user)
+  }
+
+  attemptLogin(credentials: UserCredentials): Observable<HttpResponse<User>> {
+    return this.httpService.postLogin(credentials)
   }
 
   createSession(user: User) {

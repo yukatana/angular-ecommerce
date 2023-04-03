@@ -8,3 +8,7 @@ export interface User {
   token?: string; // for JWT implementation
 }
 
+export interface UserCredentials {
+  username: string;
+  password: string;
+}

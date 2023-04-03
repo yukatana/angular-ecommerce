@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { User } from '../../../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,8 +14,9 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
+    private router: Router,
   ) {
-    const emailRegex: string = '/^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/'
+    const emailRegex: string = '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-]+)(\\.[a-zA-Z]{2,5}){1,2}$'
     const controls: any = {
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
@@ -33,7 +35,15 @@ export class SignupComponent implements OnInit {
     const user: User = this.signupForm.value
     this.authService.attemptSignup(user).subscribe(
       res => {
-        this.authService.createSession(res)
+        if (res.status === 200
+          && res.body?.username) {
+          const user = { ...res.body }
+          this.authService.createSession(user)
+          this.router.navigate(['/products'])
+        } else {
+          this.signupForm.reset()
+          alert('An account already exists for this email address. Please, try registering with a different address.')
+        }
       }
     )
   }

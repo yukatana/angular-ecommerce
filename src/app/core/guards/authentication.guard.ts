@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  NavigationExtras,
+  Router,
+  RouterStateSnapshot,
+  UrlTree
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppState } from '../state/app.state';
 import { Store } from '@ngrx/store';
@@ -27,7 +34,11 @@ export class AuthenticationGuard implements CanActivate {
     if (this.isAuthenticated) {
       return true
     } else {
-      this.router.navigate(['login'])
+      const currentUrl = this.router.url
+      const navigationExtras: NavigationExtras = {
+        queryParams: { returnUrl: currentUrl}
+      }
+      this.router.navigate(['/auth/login'], navigationExtras)
       return false
     }
   }

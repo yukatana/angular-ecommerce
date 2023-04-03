@@ -5,3 +5,13 @@ mat-toolbar {
 h1 {
   font-size: 1.5em;
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-clickable-element:hover {
+  cursor: pointer;
+}
+
+

@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center mb-3">
   <div class="row form-box py-3 mx-auto">
     <h2 class="text-white">Create account:</h2>
     <form [formGroup]="signupForm" (ngSubmit)="attemptSignup()">
@@ -24,7 +24,7 @@
       <!-- Password field -->
       <mat-form-field class="col-12 px-2" appearance="fill" >
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" class="text-white">
+        <input matInput formControlName="password" class="text-white" type="password">
         <mat-error *ngIf="signupForm.controls['password'].dirty && signupForm.controls['password'].errors?.['required']">This field cannot be empty</mat-error>
       </mat-form-field>
       <!-- Address field -->
@@ -41,9 +41,8 @@
       <div class="text-center">
         <button type="submit" [disabled]="!signupForm.valid" mat-raised-button color="primary" class="mx-3 my-1 w-25">Sign up</button>
         <button type="reset" mat-raised-button color="warn" class="mx-3 my-1 w-25 text-white">Reset</button>
-        <button routerLink="/login" mat-raised-button color="accent" class="mx-3 my-1 w-25">Go to login</button>
+        <button routerLink="/auth/login" mat-raised-button color="accent" class="mx-3 my-1 w-25">Go to login</button>
       </div>
     </form>
+  </div>
 </div>
-
-

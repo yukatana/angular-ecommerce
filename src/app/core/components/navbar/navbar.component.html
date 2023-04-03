@@ -1,3 +1,6 @@
 <mat-toolbar color="primary">
-  <h1 class="ms-2">eCommerce</h1>
+  <h1 routerLink="/products" class="ms-2 toolbar-clickable-element">eCommerce</h1>
+  <span class="spacer"></span>
+  <span *ngIf="" routerLink="/auth/signup" class="mx-3 toolbar-clickable-element">Sign up</span>
+  <span routerLink="/auth/login" class="mx-3 toolbar-clickable-element">Log in</span>
 </mat-toolbar>

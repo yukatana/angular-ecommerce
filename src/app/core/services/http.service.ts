@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Product } from '../../models/product';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { User } from '../../models/user';
+import { User, UserCredentials } from '../../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,11 @@ export class HttpService {
     return this.http.get<Product[]>(`${environment.API_URL}api/products`)
   }
 
-  postSignup(user: User): Observable<User> {
-    return this.http.post<User>(`${environment.API_URL}api/auth/signup`, {user})
+  postSignup(user: User): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`${environment.API_URL}auth/signup`, {...user}, {observe: 'response'})
+  }
+
+  postLogin(credentials: UserCredentials): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`${environment.API_URL}auth/login`, {...credentials}, {observe: 'response'})
   }
 }
