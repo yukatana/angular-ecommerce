@@ -11,3 +11,7 @@ mat-label {
 .form-box > p {
   color: #C13FB2;
 }
+
+img {
+  width: 100%;
+}

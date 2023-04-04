@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../state/app.state';
 import { SessionState } from '../../models/session.state';
 import { sessionSelector } from '../../state/session/session.selectors';
-import { deleteSessionFromStorage, exitSession, saveSession, storeSession } from '../../state/session/session.actions';
+import { deleteSessionFromStorage, saveSession, storeSession } from '../../state/session/session.actions';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 
@@ -41,7 +41,7 @@ export class AuthenticationService {
 
   // called from SessionEffects in order to persist session data
   saveSessionToStorage(user: User) {
-    localStorage.setItem('session', JSON.stringify(user))
+    localStorage.setItem('session', JSON.stringify({ user, isAuthenticated: true }))
   }
 
   exitSession() {
