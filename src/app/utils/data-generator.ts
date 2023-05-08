@@ -6,7 +6,7 @@ export const generateProducts = (n: number): Product[] => {
   for (let i = 0; i < n; i++) {
     products.push(
       {
-        id: faker.datatype.uuid(),
+        _id: faker.datatype.uuid(),
         name: faker.vehicle.model(),
         category: 'vehicle',
         description: faker.vehicle.type(),

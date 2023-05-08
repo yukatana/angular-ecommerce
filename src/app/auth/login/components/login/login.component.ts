@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   attemptLogin() {
-    const credentials = { username: this.loginForm.value.username, password: this.loginForm.value.password}
+    const credentials = { username: this.loginForm.value.username, password: this.loginForm.value.password }
     this.authService.attemptLogin(credentials).subscribe(
       res => {
         if (res.status === 200

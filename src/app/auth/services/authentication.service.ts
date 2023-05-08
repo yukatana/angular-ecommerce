@@ -9,9 +9,7 @@ import { deleteSessionFromStorage, saveSession, storeSession } from '../../state
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService {
   response!: User;
   session$: Observable<SessionState>;
