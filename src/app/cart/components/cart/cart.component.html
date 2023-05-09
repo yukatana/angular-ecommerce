@@ -6,10 +6,10 @@
 
 <div *ngIf="cart.length !== 0" class="container">
   <div class="row">
-    <button mat-flat-button color="primary" (click)="emptyCart()" class="col-12">Purchase cart</button>
+    <button mat-flat-button color="primary" (click)="purchaseCart()" class="col-12">Purchase cart</button>
   </div>
   <div class="row mt-3">
-    <button mat-flat-button color="warn" (click)="purchaseCart()" class="col-12">Empty cart</button>
+    <button mat-flat-button color="warn" (click)="emptyCart()" class="col-12">Empty cart</button>
   </div>
 </div>
 
