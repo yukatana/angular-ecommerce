@@ -5,10 +5,6 @@ import { CommonModule } from '@angular/common';
 import { PurchaseHistoryService } from '../purchase-history/services/purchase-history.service';
 import { StoreModule } from '@ngrx/store';
 import * as fromCart from './state/reducers/cart.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { CartEffects } from './state/effects/cart.effects';
-
-
 
 @NgModule({
   declarations: [
@@ -21,7 +17,6 @@ import { CartEffects } from './state/effects/cart.effects';
     CommonModule,
     MaterialModule,
     StoreModule.forFeature(fromCart.cartFeatureKey, fromCart.reducer),
-    EffectsModule.forFeature([CartEffects])
   ]
 })
 export class CartModule { }
